@@ -85,18 +85,17 @@ if page == "🏠 Home":
     st.markdown(
     """
     <div class="glass">
-    AI powered system for **Job Posting Classification and Analysis**
-    using **Machine Learning + Natural Language Processing**.
+    AI powered system for <b>Job Posting Classification and Analysis</b>
+    using <b>Machine Learning + Natural Language Processing</b>.
     </div>
     """,
     unsafe_allow_html=True
     )
 
-    col1,col2,col3 = st.columns(3)
+    col1,col2 = st.columns(2)
 
     col1.metric("📄 Total Jobs",len(data))
-    col2.metric("🏢 Companies",data["company"].nunique())
-    col3.metric("📊 Categories",data["category"].nunique())
+    col2.metric("📊 Categories",data["category"].nunique())
 
     st.markdown("---")
 
@@ -139,7 +138,7 @@ elif page == "🤖 Job Predictor":
 
     if st.button("🚀 Predict Category"):
 
-        if description == "":
+        if description.strip() == "":
             st.warning("Enter job description first")
 
         else:
@@ -161,7 +160,6 @@ elif page == "🤖 Job Predictor":
 
             st.plotly_chart(fig,use_container_width=True)
 
-            # probability chart
             fig2 = px.bar(
                 x=model.classes_,
                 y=prob,
@@ -211,8 +209,6 @@ elif page == "📊 Market Analytics":
 
     st.markdown('<div class="glass">',unsafe_allow_html=True)
 
-    col1,col2 = st.columns(2)
-
     fig = px.histogram(
         data,
         x="category",
@@ -220,16 +216,7 @@ elif page == "📊 Market Analytics":
         title="Job Category Distribution"
     )
 
-    col1.plotly_chart(fig,use_container_width=True)
-
-    fig2 = px.histogram(
-        data,
-        x="company",
-        color="category",
-        title="Hiring Trends by Company"
-    )
-
-    col2.plotly_chart(fig2,use_container_width=True)
+    st.plotly_chart(fig,use_container_width=True)
 
     st.markdown('</div>',unsafe_allow_html=True)
 
