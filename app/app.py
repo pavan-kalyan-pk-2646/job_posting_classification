@@ -7,6 +7,16 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from collections import Counter
 import random
+import os
+
+# ---------------------------------------------------
+# PATH FIX (VERY IMPORTANT)
+# ---------------------------------------------------
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+model_path = os.path.join(BASE_DIR, "models", "model.pkl")
+vectorizer_path = os.path.join(BASE_DIR, "models", "vectorizer.pkl")
+data_path = os.path.join(BASE_DIR, "data", "job_dataset.csv")
 
 # ---------------------------------------------------
 # PAGE CONFIG
@@ -60,10 +70,9 @@ font-size:18px;
 # ---------------------------------------------------
 # LOAD MODEL
 # ---------------------------------------------------
-model = pickle.load(open("../models/model.pkl","rb"))
-vectorizer = pickle.load(open("../models/vectorizer.pkl","rb"))
-
-data = pd.read_csv("../data/job_dataset.csv")
+model = pickle.load(open("models/model.pkl","rb"))
+vectorizer = pickle.load(open("models/vectorizer.pkl","rb"))
+data = pd.read_csv("data/job_dataset.csv")
 
 # ---------------------------------------------------
 # SIDEBAR
@@ -82,15 +91,12 @@ if page == "🏠 Home":
 
     st.markdown('<div class="title">AI Job Intelligence System</div>',unsafe_allow_html=True)
 
-    st.markdown(
-    """
+    st.markdown("""
     <div class="glass">
     AI powered system for <b>Job Posting Classification and Analysis</b>
     using <b>Machine Learning + Natural Language Processing</b>.
     </div>
-    """,
-    unsafe_allow_html=True
-    )
+    """, unsafe_allow_html=True)
 
     col1,col2 = st.columns(2)
 
@@ -170,7 +176,7 @@ elif page == "🤖 Job Predictor":
 
     st.markdown('</div>',unsafe_allow_html=True)
 
-    # Skill detection
+    # Skill Detection
     st.markdown('<div class="glass">',unsafe_allow_html=True)
 
     st.subheader("🧠 Detected Skills")
@@ -220,7 +226,7 @@ elif page == "📊 Market Analytics":
 
     st.markdown('</div>',unsafe_allow_html=True)
 
-    # Top skills
+    # Top Skills
     st.markdown('<div class="glass">',unsafe_allow_html=True)
 
     words = " ".join(data["description"]).lower().split()
@@ -240,7 +246,7 @@ elif page == "📊 Market Analytics":
 
     st.markdown('</div>',unsafe_allow_html=True)
 
-    # Word cloud
+    # WordCloud
     st.markdown('<div class="glass">',unsafe_allow_html=True)
 
     text = " ".join(data["description"])
@@ -262,7 +268,7 @@ elif page == "📊 Market Analytics":
     st.markdown('</div>',unsafe_allow_html=True)
 
 # ---------------------------------------------------
-# DATASET PAGE
+# DATASET EXPLORER
 # ---------------------------------------------------
 elif page == "📂 Dataset Explorer":
 
