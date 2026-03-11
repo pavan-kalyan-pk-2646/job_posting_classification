@@ -1,3 +1,4 @@
+streamlit link-  https://jobpostingclassification-ggv98scedynjbk2ytayoiy.streamlit.app/
 # Job Posting Classification and Analysis
 
 This project is a Machine Learning and Natural Language Processing based system that automatically classifies job descriptions into categories such as **Data Science, Software, and Marketing**.
