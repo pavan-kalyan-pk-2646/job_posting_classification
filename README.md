@@ -38,22 +38,22 @@ It also provides **job market analysis** through skill detection, visualizations
 7. Visualization and Analysis
 
 # Project Implementation Workflow
-1. Title & Introduction
-2. Import Libraries
-3. Download Stopwords
-4. Load Dataset
-5. Dataset Information
-6. Category Distribution
-7. Data Visualization
-8. Text Cleaning
-9. Apply Cleaning
-10. TF-IDF Feature Extraction
-11. Train-Test Split
-12. Model Training
-13. Prediction
-14. Accuracy
-15. Classification Report
-16. Save Model
-17. Test Prediction
-18. Conclusion
+
+1.  Import Libraries
+2. Download Stopwords
+3. Load Dataset
+4. Dataset Information
+5. Category Distribution
+6. Data Visualization
+7. Text Cleaning
+8. Apply Cleaning
+9. TF-IDF Feature Extraction
+10. Train-Test Split
+11. Model Training
+12. Prediction
+13. Accuracy
+14. Classification Report
+15. Save Model
+16. Test Prediction
+
 
