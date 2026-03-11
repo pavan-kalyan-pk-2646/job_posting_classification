@@ -60,10 +60,10 @@ font-size:18px;
 # ---------------------------------------------------
 # LOAD MODEL
 # ---------------------------------------------------
-model = pickle.load(open("models/model.pkl","rb"))
-vectorizer = pickle.load(open("models/vectorizer.pkl","rb"))
+model = pickle.load(open("../models/model.pkl","rb"))
+vectorizer = pickle.load(open("../models/vectorizer.pkl","rb"))
 
-data = pd.read_csv("data/job_dataset.csv")
+data = pd.read_csv("../data/job_dataset.csv")
 
 # ---------------------------------------------------
 # SIDEBAR
